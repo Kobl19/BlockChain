@@ -1,0 +1,11 @@
+C:\Users\user\source\repos\WebBlockChain\Domain\bin\Debug\Domain.dll.config
+C:\Users\user\source\repos\WebBlockChain\Domain\bin\Debug\Domain.dll
+C:\Users\user\source\repos\WebBlockChain\Domain\bin\Debug\Domain.pdb
+C:\Users\user\source\repos\WebBlockChain\Domain\bin\Debug\EntityFramework.dll
+C:\Users\user\source\repos\WebBlockChain\Domain\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\user\source\repos\WebBlockChain\Domain\bin\Debug\EntityFramework.xml
+C:\Users\user\source\repos\WebBlockChain\Domain\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\user\source\repos\WebBlockChain\Domain\obj\Debug\Domain.csprojResolveAssemblyReference.cache
+C:\Users\user\source\repos\WebBlockChain\Domain\obj\Debug\Domain.csproj.CoreCompileInputs.cache
+C:\Users\user\source\repos\WebBlockChain\Domain\obj\Debug\Domain.dll
+C:\Users\user\source\repos\WebBlockChain\Domain\obj\Debug\Domain.pdb

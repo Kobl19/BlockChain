@@ -1,0 +1,51 @@
+﻿@model WebBlockChain.ViewModels.DetailsViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+<div style="float:right; display:flex;">@Html.ActionLink("На главную", "Auhorization", "Home")</div>
+    <h3>Блоки</h3>
+    @if (Model.BlockChains.Count != 0)
+    {
+        <ul>
+            @foreach (var item in Model.BlockChains)
+            {
+                <li>
+                    Block №@item.BlockId
+                    <br />
+                    Hash:@item.Hash
+                    <br />
+                    PreviosHash:@item.PreviosHash
+                    <br />
+                    Transactions:
+                    @foreach (var trans in item.Transaction)
+                    {
+                        <ul>@trans.Seller.FirstName -> @trans.Buyer.FirstName [@trans.Count @trans.Currensy] Date:@trans.Time</ul>
+                    }
+                    <hr />
+                </li>
+            }
+        </ul>
+    }
+    else
+    {
+        <p>Готовых блоков пока нету, но скоро будут как только майнеры начнут работу...:)</p>
+    }
+    <hr style="height:1px;border:none;color:#333;background-color:#333;" />
+    <h4>Не добавленные в блок транзакции, сделайте майнинг для добавления</h4>
+    @if (Model.Transactions.Count != 0)
+    {
+        <ul>
+            @foreach (var trans in Model.Transactions)
+            {
+                <li>@trans.Seller.FirstName -> @trans.Buyer.FirstName [@trans.Count @trans.Currensy] Date:@trans.Time<hr /></li>
+            }
+
+        </ul>
+    }
+    else
+    {
+        <p>Не добавленых транзакций нету...</p>
+    }
+
+

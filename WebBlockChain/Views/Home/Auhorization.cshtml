@@ -1,0 +1,17 @@
+﻿@model WebBlockChain.ViewModels.AuthorizationViewModel
+
+@{
+    ViewBag.Title = "Auhorization";
+}
+<div class="form-control" style="border:2px double black; width:200px">
+    <div>Авторизуйтесь</div>
+    @using (Html.BeginForm("Index", "Home", FormMethod.Get))
+    {
+        foreach (var user in Model.Users)
+        {
+        @*@*<input type="hidden" name="UserId" value="@user.UserId" />*@
+        <button type="submit" style="margin:5px; background-color:gray; color:white" value="@user.UserId" name="UserId">@user.FirstName @user.LastName</button>
+        <br/>
+        }
+    }
+</div>

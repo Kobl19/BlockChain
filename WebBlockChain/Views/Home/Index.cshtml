@@ -1,0 +1,57 @@
+﻿@model WebBlockChain.ViewModels.IndexViewModel
+
+@{
+    ViewBag.Title = "Главная";
+}
+<div id="message" style="color:green; display:none">Поздравляем вы успешно смайнили и получили 50 USD</div>
+<div id="errormessage" style="color:red; display:none">К сожалению новых транзакций нету, попробуйте позже</div>
+<div style="float:right; display:flex;">
+    <div>@Model.User.FirstName @Model.User.LastName</div>
+    <div>
+        @if (Model.User.Currency != null)
+        {
+            foreach (var item in Model.User.Currency)
+            {
+                <div style="margin:0px 10px 0px 10px">@item.Name @item.Count</div>
+                <input type="hidden" value="@item.Count" id="currency-@item.Name">
+            }
+        }
+        else
+        {
+            <div style="margin:0px 10px 0px 10px">Ваш баланс: 0</div>
+        }
+    </div>
+</div>
+<br />
+@using (Html.BeginForm("CreateTransaction", "Home", FormMethod.Post))
+{
+    <div style="border:2px solid black; width:200px; padding:5px" class="form-control">
+        <div style="margin-bottom:5px">Создать Транзакцию</div>
+        <select class="form-control" name="SelectedUser">
+            @foreach (var item in Model.Users)
+            {
+                //string selected = item.Name == Model.Room.Name ? "selected" : "";
+                <option value="@item.UserId">@item.LastName</option>
+            }
+        </select>
+        <br />
+        <input name="Count" class="form-control" value="" id="count" min="0" max="" type="number" style="width:80px; margin-bottom:5px" />
+        <select class="form-control" id="curr" name="Currensy" style="width:100px">
+            @foreach (var item in Model.User.Currency)
+            {
+                //string selected = item.Name == Model.Room.Name ? "selected" : "";
+                <option value="@item.Name">@item.Name</option>
+            }
+        </select>
+        <br />
+        <input type="hidden" name="UserId" value="@Model.User.UserId" />
+        <button type="submit" class="btn btn-primary" style="margin-top:5px">Передать</button>
+    </div>
+}
+<br />
+@Html.ActionLink("Просмотреть все записи", "Details", "Home")
+<div style="float:right; display:flex;">
+    <button type="submit" class="btn btn-primary" UserId="@Model.User.UserId" id="mining">Хочу майнить:)</button>
+</div>
+
+<script src="~/Scripts/Index.js"></script>
